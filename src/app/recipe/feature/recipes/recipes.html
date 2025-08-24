@@ -1,0 +1,4 @@
+<app-recipe-grid
+  [recipes]="(recipe$ | async) ?? []"
+  [categories]="(categories$ | async) ?? []">
+</app-recipe-grid>
