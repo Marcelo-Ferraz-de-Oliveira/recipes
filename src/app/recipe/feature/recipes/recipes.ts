@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RecipeService } from '../../data/recipe.service';
-import { Category as CategoryService } from '../../data/category';
+import { Category as CategoryService } from '../../data/category.service';
 import { AsyncPipe } from '@angular/common';
 import { RecipeGrid } from '../../ui/recipe-grid/recipe-grid';
 import { Router } from '@angular/router';
