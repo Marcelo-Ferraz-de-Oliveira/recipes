@@ -19,23 +19,23 @@ export class RecipeCard {
   resizedImageUrl = signal<string | undefined>(undefined);
   placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDQwMCAyNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiNmM2YzZjUiLz48L3N2Zz4=';
 
-  async ngOnInit() {
-    await this.resizeImage();
+  ngOnInit() {
+    this.resizeImage();
   }
 
-  async ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges) {
     if (changes['recipe']) {
-      await this.resizeImage();
+      this.resizeImage();
     }
   }
 
-  async resizeImage() {
+  resizeImage() {
     const imagePath = this.recipe()?.imagePath;
     if (!imagePath) return;
-    this.resizedImageUrl.set(await this.downscaleImage(imagePath, 400, 240));
+    this.downscaleImage(imagePath, 400, 240).then((url) => this.resizedImageUrl.set(url));
   }
 
-  async downscaleImage(url: string, maxWidth: number, maxHeight: number): Promise<string> {
+  downscaleImage(url: string, maxWidth: number, maxHeight: number): Promise<string> {
     return new Promise((resolve) => {
       const img = new window.Image();
       img.crossOrigin = 'anonymous';
