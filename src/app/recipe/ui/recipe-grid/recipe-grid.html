@@ -9,7 +9,8 @@
   @for(recipe of recipes(); track recipe.id) {
     <app-recipe-card
       [recipe]="recipe"
-      [categories]="categories()">
+      [categories]="categories()"
+      (clickEvent)="clickEvent.emit($event)">
     </app-recipe-card>
   }
 </section>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Category } from '../../data/category.model';
 import { Recipe } from '../../data/recipe.model';
 import { RecipeCard } from '../recipe-card/recipe-card';
@@ -13,5 +13,6 @@ import { RecipeCard } from '../recipe-card/recipe-card';
 export class RecipeGrid {
   recipes = input<Recipe[]>();
   categories = input<Category[]>();
+  clickEvent = output<string>();
 
 }

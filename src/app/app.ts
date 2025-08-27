@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './shared/ui/header/header';
-import { Recipes } from './recipe/feature/recipes/recipes';
-import { RecipeService } from './recipe/data/recipe.service';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Recipes],
+  imports: [RouterOutlet, Header],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
