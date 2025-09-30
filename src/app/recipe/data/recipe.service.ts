@@ -24,4 +24,11 @@ export class RecipeService {
         tap(recipe => console.log('Recipe:', recipe))
       );
   }
+
+  public search (search: string): Observable<Recipe[]> {
+    return this.httpClient.get<Recipe[]>(`${this.apiBaseUrl}/api/v1/recipes`, {params: {search}})
+      .pipe(
+        tap(recipe => console.log('Recipe:', recipe))
+      );
+  }
 }
