@@ -13,6 +13,7 @@ import { CommentService } from '../../../social/data/comment.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../../../social/data/comment.model';
 import { Visibility } from '../../../shared/data/visibility.model';
+import { UniqueComponentId } from 'primeng/utils';
 
 @Component({
   selector: 'app-recipe',
@@ -59,6 +60,7 @@ export class Recipe {
     }
 
     const comment = {
+      id: crypto.randomUUID(),
       createdAt: new Date(),
       recipeId: this.id(),
       userId: '123456',
